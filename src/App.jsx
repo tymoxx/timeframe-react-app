@@ -77,7 +77,7 @@ function App() {
 
     return (
         <>
-            {/*<h2 className="logo">UNDO:</h2>*/}
+            <h2 className="logo">UNDO:</h2>
 
             <section className="animation">
                 <div id="image1" className="image image1" style={{ backgroundImage: `url(${image1})` }} />
