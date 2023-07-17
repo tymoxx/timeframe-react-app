@@ -24,20 +24,25 @@
     background: #e9e0fa;
 }
 
-.image,
-.phone-image {
+.image {
+    width: 360px;
+    z-index: 10;
     position: absolute;
-    width: 300px;
     max-width: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.image {
-    z-index: 10;
-}
-
 .phone-image {
     z-index: 1;
+    position: absolute;
+    max-width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.phone-mockup {
+    width: 398px;
 }

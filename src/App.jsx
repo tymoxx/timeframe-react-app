@@ -4,7 +4,8 @@ import {gsap} from 'gsap';
 import {ScrollMagicPluginGsap} from "scrollmagic-plugin-gsap";
 import {ScrollMagicPluginIndicator} from "scrollmagic-plugins";
 import ScrollMagic from 'scrollmagic';
-
+import phoneMockup from './assets/phone-mockup.png';
+import screen1 from './assets/screen1.jpg';
 ScrollMagicPluginGsap(ScrollMagic, gsap); // add gsap to ScrollMagic
 ScrollMagicPluginIndicator(ScrollMagic); // add indicators plugin
 
@@ -25,7 +26,7 @@ function App() {
         })
             // .addIndicators()
             .setTween(gsap.timeline()
-                .add(gsap.from('#pin1', 1, {x: '40vw', y: '5vw'}))
+                .add(gsap.from('#pin1', 1, {x: '38vw', y: '5vw'}))
                 .add(gsap.to('#pin1', 0.5, {rotate: 30}), '<')
                 .add(gsap.to('#pin1', 0.5, {rotate: 0}), '>')
             )
@@ -56,10 +57,15 @@ function App() {
                 className={'image'}
             />
 
+            {/*<img*/}
+            {/*    id="phone-image"*/}
+            {/*    src={screen1}*/}
+            {/*    className={'phone-image'}*/}
+            {/*/>*/}
             <img
                 id="phone-image"
-                src={'https://assets.website-files.com/5c6648378238e311a00c7e61/5c6648378238e318c30c7f6d_hero-002.jpg'}
-                className={'phone-image'}
+                src={phoneMockup}
+                className={['phone-image', 'phone-mockup'].join(' ')}
             />
         </section>
         <footer className="footer">
