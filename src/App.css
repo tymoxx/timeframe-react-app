@@ -12,7 +12,7 @@
 .animation {
     position: relative;
     height: 100vh;
-    background: #fff7e9;
+    background: #252526;
     /*overflow: hidden;*/
 }
 
@@ -21,7 +21,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #e9e0fa;
+    background: #254444;
 }
 
 .image {
@@ -84,5 +84,5 @@
     white-space: nowrap;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    /*color: #fff;*/
+    color: #fff;
 }
