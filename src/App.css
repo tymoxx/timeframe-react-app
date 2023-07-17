@@ -9,29 +9,29 @@
     background: #e9f4ff;
 }
 
-.footer {
+.animation {
+    position: relative;
     height: 100vh;
+    background: #fff7e9;
+    /*overflow: hidden;*/
+}
+
+.footer {
+    height: 1000vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background: #e9e0fa;
 }
 
-.Animation {
-    position: relative;
-    height: 2000vh;
-    background: #fff7e9;
-    overflow: hidden;
-}
-
 .image,
 .phone-image {
     position: absolute;
     width: 300px;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
     max-width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .image {

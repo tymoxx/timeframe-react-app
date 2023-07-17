@@ -8,7 +8,7 @@ import ScrollMagic from 'scrollmagic';
 ScrollMagicPluginGsap(ScrollMagic, gsap); // add gsap to ScrollMagic
 ScrollMagicPluginIndicator(ScrollMagic); // add indicators plugin
 
-const DURATION = 2000;
+const DURATION = 1000;
 function App() {
     const imgRef = useRef();
 
@@ -20,7 +20,8 @@ function App() {
 
         //* Move horizontally */
         new ScrollMagic.Scene({
-            triggerElement: ".Animation", duration: DURATION,
+            triggerElement: ".animation", duration: DURATION,
+            triggerHook: 0, // trigger at the top of viewport
         })
             // .addIndicators()
             .setTween(gsap.timeline()
@@ -33,7 +34,8 @@ function App() {
 
         /* Fix vertically */
         new ScrollMagic.Scene({
-            triggerElement: ".Animation", duration: DURATION,
+            triggerElement: ".animation", duration: DURATION,
+            triggerHook: 0, // trigger at the top of viewport
         })
             .addIndicators()
             .setPin("#phone-image")
@@ -42,11 +44,11 @@ function App() {
     }, []);
 
     return (<div className="App">
-        <header className="header">
-            HEADER
-        </header>
+        {/*<header className="header">*/}
+        {/*    HEADER*/}
+        {/*</header>*/}
 
-        <section className={"Animation"}>
+        <section className={"animation"}>
             <img
                 ref={imgRef}
                 id="pin1"
