@@ -16,7 +16,6 @@ function App() {
     useEffect(() => {
         const controller = new ScrollMagic.Controller();
 
-        // TODO: delete?
         // Calculate half of the width difference between the image and the viewport
         const xOffset = (imgRef.current.offsetWidth - window.innerWidth) / 2;
 
