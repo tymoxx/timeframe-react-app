@@ -36,7 +36,7 @@ function App() {
             )
             .setPin("#id1") // pin the image when it's in the center of the viewport
             .addTo(controller)
-            .addIndicators()
+            // .addIndicators()
 
         /** Img 2 pink */
         new ScrollMagic.Scene({
