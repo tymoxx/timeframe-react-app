@@ -2,59 +2,66 @@ import React, {useEffect, useRef} from 'react';
 import './App.css';
 import {gsap} from 'gsap';
 import {ScrollMagicPluginGsap} from "scrollmagic-plugin-gsap";
-import { ScrollMagicPluginIndicator} from "scrollmagic-plugins";
+import {ScrollMagicPluginIndicator} from "scrollmagic-plugins";
 import ScrollMagic from 'scrollmagic';
 
 ScrollMagicPluginGsap(ScrollMagic, gsap); // add gsap to ScrollMagic
 ScrollMagicPluginIndicator(ScrollMagic); // add indicators plugin
 
 function App() {
-    const imageRef1 = useRef(null);
-    // const imageRef2 = useRef(null);
-
-    const tween = gsap.fromTo(imageRef1.current, 2, {x: 700}, {x: 0, ease: "power1.out"});
+    const imgRef = useRef();
 
     useEffect(() => {
         const controller = new ScrollMagic.Controller();
 
-        // Create tween for first image
-        const scene1 = new ScrollMagic.Scene({
+        // Calculate half of the width difference between the image and the viewport
+        const xOffset = (imgRef.current.offsetWidth - window.innerWidth) / 2;
+
+        //* Move horizontally */
+        new ScrollMagic.Scene({
             triggerElement: ".Animation",
-            duration: 3000
+            duration: 400,
         })
-            .setPin("#pin1")
-            .addIndicators() // add indicators (requires plugin)
-            .setTween(tween)
+            // .addIndicators()
+            .setTween(gsap.from('#pin1', 1, {x: -xOffset}))
+            .setPin("#pin1") // pin the image when it's in the center of the viewport
             .addTo(controller);
 
-        // Create tween for second image
-        // var tween2 = gsap.fromTo(imageRef2.current, 2, {x: 700}, {x: 0, ease: "power1.out"});
-        // var scene2 = new ScrollMagic.Scene({triggerElement: imageRef2.current, duration: 300})
-        //     .setTween(tween2)
-        //     .addTo(controller);
+        /* Fix vertically */
+        new ScrollMagic.Scene({
+            triggerElement: ".Animation",
+            duration: 400,
+        })
+            .addIndicators()
+            .setPin("#phone-image")
+            .addTo(controller);
 
     }, []);
 
     return (
         <div className="App">
-            <header className="App-header">
+            <header className="header">
                 HEADER
             </header>
 
             <section className={"Animation"}>
                 <img
-                    ref={imageRef1}
+                    ref={imgRef}
                     id="pin1"
                     src={'https://assets.website-files.com/5c6648378238e311a00c7e61/5c6648378238e318c30c7f6d_hero-002.jpg'}
                     className={'image'}
                 />
-                {/*<img ref={imageRef2} src={'https://assets.website-files.com/5c6648378238e311a00c7e61/5c6648378238e385680c7ee6_grid-29.jpg'} className={'image'}/>*/}
+
+                <img
+                    id="phone-image"
+                    src={'https://assets.website-files.com/5c6648378238e311a00c7e61/5c6648378238e318c30c7f6d_hero-002.jpg'}
+                    className={'phone-image'}
+                />
             </section>
-            <footer className="App-footer">
+            <footer className="footer">
                 FOOTER
             </footer>
         </div>
-
     );
 }
 

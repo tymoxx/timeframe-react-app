@@ -1,31 +1,43 @@
 .App {
 }
 
-.App-header {
-  height: 10vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #e9f4ff;
+.header {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e9f4ff;
 }
 
-.App-footer {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #e9e0fa;
+.footer {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e9e0fa;
 }
 
 .Animation {
-  height: 100vh;
-  background: #fff7e9;
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    height: 100vh;
+    background: #fff7e9;
+    overflow: hidden;
+}
+
+.image,
+.phone-image {
+    position: absolute;
+    width: 300px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100%;
 }
 
 .image {
-  width: 300px;
-  position: absolute;
-  right: 0;
+    z-index: 10;
+}
+
+.phone-image {
+    z-index: 1;
 }
