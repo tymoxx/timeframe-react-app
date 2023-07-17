@@ -17,6 +17,7 @@ ScrollMagicPluginGsap(ScrollMagic, gsap); // add gsap to ScrollMagic
 ScrollMagicPluginIndicator(ScrollMagic); // add indicators plugin
 
 const DURATION = 2500;
+
 function App() {
     useEffect(() => {
         const controller = new ScrollMagic.Controller();
@@ -102,6 +103,18 @@ function App() {
             .setPin("#id6")
             .addTo(controller)
 
+        /** Scrolling Text */
+        new ScrollMagic.Scene({
+            triggerElement: ".animation", duration: DURATION,
+            triggerHook: 0,
+        })
+            .setTween(gsap.timeline()
+                .add(gsap.to('#scrolling-text', 1, {x: '-130vw'}), '<')
+                .add(gsap.to('#scrolling-text', 1, {opacity: 0})  , '<0.3')
+            )
+            .setPin("#scrolling-text")
+            .addTo(controller)
+
 
         /* FIX VERTICALLY */
         new ScrollMagic.Scene({
@@ -155,6 +168,12 @@ function App() {
                 className={['image', 'image6'].join(' ')}
                 style={{backgroundImage: `url(${image6})`}}
             />
+
+            <h2
+                id={'scrolling-text'}
+                className={'scrolling-text'}>
+                A new way of designing, discovering and sharing time.
+            </h2>
 
             {/** images of Phone*/}
             <img
