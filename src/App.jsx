@@ -8,11 +8,15 @@ import phoneMockup from './assets/phone-mockup.png';
 import screen1 from './assets/screen1.jpg';
 import image1 from './assets/image1.jpg';
 import image2 from './assets/image2.jpg';
+import image3 from './assets/image3.jpg';
+import image4 from './assets/image4.jpg';
+import image5 from './assets/image5.jpg';
+import image6 from './assets/image6.jpg';
 
 ScrollMagicPluginGsap(ScrollMagic, gsap); // add gsap to ScrollMagic
 ScrollMagicPluginIndicator(ScrollMagic); // add indicators plugin
 
-const DURATION = 1000;
+const DURATION = 2500;
 function App() {
     useEffect(() => {
         const controller = new ScrollMagic.Controller();
@@ -33,7 +37,7 @@ function App() {
             .addTo(controller)
             .addIndicators()
 
-        /** Img 1 */
+        /** Img 2 pink */
         new ScrollMagic.Scene({
             triggerElement: ".animation", duration: DURATION,
             triggerHook: 0,
@@ -44,6 +48,58 @@ function App() {
                 .add(gsap.to('#id2', 0.5, {rotate: 0}), '>')
             )
             .setPin("#id2")
+            .addTo(controller)
+
+        /** Img 3 yellow */
+        new ScrollMagic.Scene({
+            triggerElement: ".animation", duration: DURATION,
+            triggerHook: 0,
+        })
+            .setTween(gsap.timeline()
+                .add(gsap.from('#id3', 1, {x: '20vw', y: '-13vw', height: '400px'}))
+                .add(gsap.to('#id3', 0.6, {rotate: 17}), '<')
+                .add(gsap.to('#id3', 0.4, {rotate: 0}), '>')
+            )
+            .setPin("#id3")
+            .addTo(controller)
+
+        /** Img 4 green */
+        new ScrollMagic.Scene({
+            triggerElement: ".animation", duration: DURATION,
+            triggerHook: 0,
+        })
+            .setTween(gsap.timeline()
+                .add(gsap.from('#id4', 1, {x: '41vw', y: '13vw', height: '400px'}))
+                .add(gsap.to('#id4', 0.6, {rotate: 17}), '<')
+                .add(gsap.to('#id4', 0.4, {rotate: 0}), '>')
+            )
+            .setPin("#id4")
+            .addTo(controller)
+
+        /** Img 5 */
+        new ScrollMagic.Scene({
+            triggerElement: ".animation", duration: DURATION,
+            triggerHook: 0,
+        })
+            .setTween(gsap.timeline()
+                .add(gsap.from('#id5', 1, {x: '39vw', y: '-23vw', height: '400px'}))
+                .add(gsap.to('#id5', 0.6, {rotate: 17}), '<')
+                .add(gsap.to('#id5', 0.4, {rotate: 0}), '>')
+            )
+            .setPin("#id5")
+            .addTo(controller)
+
+        /** Img 6 */
+        new ScrollMagic.Scene({
+            triggerElement: ".animation", duration: DURATION,
+            triggerHook: 0,
+        })
+            .setTween(gsap.timeline()
+                .add(gsap.from('#id6', 1, {x: '10vw', y: '12vw', height: '400px'}))
+                .add(gsap.to('#id6', 0.6, {rotate: 17}), '<')
+                .add(gsap.to('#id6', 0.4, {rotate: 0}), '>')
+            )
+            .setPin("#id6")
             .addTo(controller)
 
 
@@ -79,7 +135,28 @@ function App() {
                 className={['image', 'image2'].join(' ')}
                 style={{backgroundImage: `url(${image2})`}}
             />
+            <div
+                id="id3"
+                className={['image', 'image3'].join(' ')}
+                style={{backgroundImage: `url(${image3})`}}
+            />
+            <div
+                id="id4"
+                className={['image', 'image4'].join(' ')}
+                style={{backgroundImage: `url(${image4})`}}
+            />
+            <div
+                id="id5"
+                className={['image', 'image5'].join(' ')}
+                style={{backgroundImage: `url(${image5})`}}
+            />
+            <div
+                id="id6"
+                className={['image', 'image6'].join(' ')}
+                style={{backgroundImage: `url(${image6})`}}
+            />
 
+            {/** images of Phone*/}
             <img
                 id="screen1"
                 src={screen1}
@@ -91,6 +168,7 @@ function App() {
                 className={['phone-image', 'phone-mockup'].join(' ')}
             />
         </section>
+
         <footer className="footer">
             FOOTER
         </footer>

@@ -17,7 +17,7 @@
 }
 
 .footer {
-    height: 1000vh;
+    height: 700vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,9 +26,8 @@
 
 .image {
     width: 360px;
-    height: 269px; /* Add a height to make sure image is visible */
+    height: 269px;
     position: absolute;
-    max-width: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -60%);
@@ -39,14 +38,25 @@
 
 .image1 {
     z-index: 200;
-
 }
-
 .image2 {
     z-index: 190;
 }
+.image3 {
+    z-index: 180;
+}
+.image4 {
+    z-index: 170;
+}
+.image5 {
+    z-index: 160;
+}
+.image6 {
+    z-index: 150;
+}
 
 .phone-image {
+    z-index: 9;
     position: absolute;
     max-width: 100%;
     top: 50%;
