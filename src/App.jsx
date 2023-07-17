@@ -16,10 +16,11 @@ function App() {
     useEffect(() => {
         const controller = new ScrollMagic.Controller();
 
+        // TODO: delete?
         // Calculate half of the width difference between the image and the viewport
         const xOffset = (imgRef.current.offsetWidth - window.innerWidth) / 2;
 
-        //* Move horizontally */
+        // Move horizontally
         new ScrollMagic.Scene({
             triggerElement: ".animation", duration: DURATION,
             triggerHook: 0, // trigger at the top of viewport
@@ -31,17 +32,24 @@ function App() {
                 .add(gsap.to('#pin1', 0.5, {rotate: 0}), '>')
             )
             .setPin("#pin1") // pin the image when it's in the center of the viewport
-            .addTo(controller);
+            .addTo(controller)
+            .addIndicators()
+
 
         /* Fix vertically */
         new ScrollMagic.Scene({
             triggerElement: ".animation", duration: DURATION,
             triggerHook: 0, // trigger at the top of viewport
         })
-            .addIndicators()
-            .setPin("#phone-image")
+            .setPin("#screen1")
             .addTo(controller);
 
+        new ScrollMagic.Scene({
+            triggerElement: ".animation", duration: DURATION,
+            triggerHook: 0, // trigger at the top of viewport
+        })
+            .setPin("#phone-mockup")
+            .addTo(controller);
     }, []);
 
     return (<div className="App">
@@ -57,13 +65,13 @@ function App() {
                 className={'image'}
             />
 
-            {/*<img*/}
-            {/*    id="phone-image"*/}
-            {/*    src={screen1}*/}
-            {/*    className={'phone-image'}*/}
-            {/*/>*/}
             <img
-                id="phone-image"
+                id="screen1"
+                src={screen1}
+                className={['phone-image', 'screen1'].join(' ')}
+            />
+            <img
+                id="phone-mockup"
                 src={phoneMockup}
                 className={['phone-image', 'phone-mockup'].join(' ')}
             />

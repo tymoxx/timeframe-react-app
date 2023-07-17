@@ -26,7 +26,7 @@
 
 .image {
     width: 360px;
-    z-index: 10;
+    z-index: 100;
     position: absolute;
     max-width: 100%;
     top: 50%;
@@ -35,7 +35,6 @@
 }
 
 .phone-image {
-    z-index: 1;
     position: absolute;
     max-width: 100%;
     top: 50%;
@@ -45,4 +44,10 @@
 
 .phone-mockup {
     width: 398px;
+}
+
+.screen1 {
+    z-index: 10;
+    width: 360px;
+    border-radius: 45px;
 }
