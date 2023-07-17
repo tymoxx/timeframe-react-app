@@ -59,9 +59,9 @@ function App() {
             triggerHook: 0, // trigger at the top of viewport
         })
             .setTween(gsap.timeline()
-                .add(gsap.from('#screen1', 1, {y: '55vw'}))
+                .add(gsap.from('#phone-screen', 1, {y: '55vw'}))
             )
-            .setPin("#screen1")
+            .setPin("#phone-screen")
             .addTo(controller);
 
         new ScrollMagic.Scene({
@@ -76,7 +76,7 @@ function App() {
     }, []);
 
     return (
-        <div className="App">
+        <>
             <h2 className="logo">UNDO:</h2>
 
             <section className="animation">
@@ -89,12 +89,12 @@ function App() {
 
                 <h2 id="scrolling-text" className="scrolling-text">A new way of designing, discovering and sharing time.</h2>
 
-                <img id="screen1" src={screen1} alt="screen1" className="phone-image screen1" />
+                <img id="phone-screen" src={screen1} alt="phone-screen1" className="phone-image phone-screen" />
                 <img id="phone-mockup" src={phoneMockup} alt="phone-mockup" className="phone-image phone-mockup" />
             </section>
 
             <footer className="footer">FOOTER</footer>
-        </div>
+        </>
     );
 }
 
