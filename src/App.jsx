@@ -121,6 +121,9 @@ function App() {
             triggerElement: ".animation", duration: DURATION,
             triggerHook: 0, // trigger at the top of viewport
         })
+            .setTween(gsap.timeline()
+                .add(gsap.from('#screen1', 1, {y: '55vw'}))
+            )
             .setPin("#screen1")
             .addTo(controller);
 
@@ -128,6 +131,9 @@ function App() {
             triggerElement: ".animation", duration: DURATION,
             triggerHook: 0, // trigger at the top of viewport
         })
+            .setTween(gsap.timeline()
+                .add(gsap.from('#phone-mockup', 1, {y: '55vw'}))
+            )
             .setPin("#phone-mockup")
             .addTo(controller);
     }, []);
@@ -185,11 +191,13 @@ function App() {
                 <img
                     id="screen1"
                     src={screen1}
+                    alt={'screen1'}
                     className={['phone-image', 'screen1'].join(' ')}
                 />
                 <img
                     id="phone-mockup"
                     src={phoneMockup}
+                    alt={'phone-mockup'}
                     className={['phone-image', 'phone-mockup'].join(' ')}
                 />
             </section>
