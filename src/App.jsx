@@ -25,7 +25,7 @@ function App() {
         })
             // .addIndicators()
             .setTween(gsap.timeline()
-                .add(gsap.from('#id1', 1, {x: '27vw', y: '10vw'}))
+                .add(gsap.from('#id1', 1, {x: '27vw', y: '1vw', height: '400px', width: '400px'}))
                 .add(gsap.to('#id1', 0.3, {rotate: 20}), '<')
                 .add(gsap.to('#id1', 0.7, {rotate: 0}), '>')
             )
@@ -39,7 +39,7 @@ function App() {
             triggerHook: 0,
         })
             .setTween(gsap.timeline()
-                .add(gsap.from('#id2', 1, {x: '38vw', y: '5vw'}))
+                .add(gsap.from('#id2', 1, {x: '38vw', y: '-10vw', height: '400px', width: '400px'}))
                 .add(gsap.to('#id2', 0.5, {rotate: -30}), '<')
                 .add(gsap.to('#id2', 0.5, {rotate: 0}), '>')
             )
@@ -69,15 +69,15 @@ function App() {
         {/*</header>*/}
 
         <section className={"animation"}>
-            <img
+            <div
                 id="id1"
-                src={image1}
                 className={['image', 'image1'].join(' ')}
+                style={{backgroundImage: `url(${image1})`}}
             />
-            <img
+            <div
                 id="id2"
-                src={image2}
                 className={['image', 'image2'].join(' ')}
+                style={{backgroundImage: `url(${image2})`}}
             />
 
             <img
