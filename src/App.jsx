@@ -97,7 +97,7 @@ function App() {
         })
             .setTween(gsap.timeline()
                 .add(gsap.from('#id6', 1, {x: '10vw', y: '12vw', height: '400px'}))
-                .add(gsap.to('#id6', 0.6, {rotate: 17}), '<')
+                .add(gsap.to('#id6', 0.6, {rotate: -17}), '<')
                 .add(gsap.to('#id6', 0.4, {rotate: 0}), '>')
             )
             .setPin("#id6")
@@ -110,7 +110,7 @@ function App() {
         })
             .setTween(gsap.timeline()
                 .add(gsap.to('#scrolling-text', 1, {x: '-130vw'}), '<')
-                .add(gsap.to('#scrolling-text', 1, {opacity: 0})  , '<0.3')
+                .add(gsap.to('#scrolling-text', 1, {opacity: 0}), '<0.3')
             )
             .setPin("#scrolling-text")
             .addTo(controller)
@@ -132,66 +132,72 @@ function App() {
             .addTo(controller);
     }, []);
 
-    return (<div className="App">
-        {/*<header className="header">*/}
-        {/*    HEADER*/}
-        {/*</header>*/}
-
-        <section className={"animation"}>
-            <div
-                id="id1"
-                className={['image', 'image1'].join(' ')}
-                style={{backgroundImage: `url(${image1})`}}
-            />
-            <div
-                id="id2"
-                className={['image', 'image2'].join(' ')}
-                style={{backgroundImage: `url(${image2})`}}
-            />
-            <div
-                id="id3"
-                className={['image', 'image3'].join(' ')}
-                style={{backgroundImage: `url(${image3})`}}
-            />
-            <div
-                id="id4"
-                className={['image', 'image4'].join(' ')}
-                style={{backgroundImage: `url(${image4})`}}
-            />
-            <div
-                id="id5"
-                className={['image', 'image5'].join(' ')}
-                style={{backgroundImage: `url(${image5})`}}
-            />
-            <div
-                id="id6"
-                className={['image', 'image6'].join(' ')}
-                style={{backgroundImage: `url(${image6})`}}
-            />
+    return (
+        <div className="App">
+            {/*<header className="header">*/}
+            {/*    HEADER*/}
+            {/*</header>*/}
 
             <h2
-                id={'scrolling-text'}
-                className={'scrolling-text'}>
-                A new way of designing, discovering and sharing time.
+                className={'logo'}>
+                UNDO:
             </h2>
 
-            {/** images of Phone*/}
-            <img
-                id="screen1"
-                src={screen1}
-                className={['phone-image', 'screen1'].join(' ')}
-            />
-            <img
-                id="phone-mockup"
-                src={phoneMockup}
-                className={['phone-image', 'phone-mockup'].join(' ')}
-            />
-        </section>
+            <section className={"animation"}>
+                <div
+                    id="id1"
+                    className={['image', 'image1'].join(' ')}
+                    style={{backgroundImage: `url(${image1})`}}
+                />
+                <div
+                    id="id2"
+                    className={['image', 'image2'].join(' ')}
+                    style={{backgroundImage: `url(${image2})`}}
+                />
+                <div
+                    id="id3"
+                    className={['image', 'image3'].join(' ')}
+                    style={{backgroundImage: `url(${image3})`}}
+                />
+                <div
+                    id="id4"
+                    className={['image', 'image4'].join(' ')}
+                    style={{backgroundImage: `url(${image4})`}}
+                />
+                <div
+                    id="id5"
+                    className={['image', 'image5'].join(' ')}
+                    style={{backgroundImage: `url(${image5})`}}
+                />
+                <div
+                    id="id6"
+                    className={['image', 'image6'].join(' ')}
+                    style={{backgroundImage: `url(${image6})`}}
+                />
 
-        <footer className="footer">
-            FOOTER
-        </footer>
-    </div>);
+                <h2
+                    id={'scrolling-text'}
+                    className={'scrolling-text'}>
+                    A new way of designing, discovering and sharing time.
+                </h2>
+
+                {/** images of Phone*/}
+                <img
+                    id="screen1"
+                    src={screen1}
+                    className={['phone-image', 'screen1'].join(' ')}
+                />
+                <img
+                    id="phone-mockup"
+                    src={phoneMockup}
+                    className={['phone-image', 'phone-mockup'].join(' ')}
+                />
+            </section>
+
+            <footer className="footer">
+                FOOTER
+            </footer>
+        </div>);
 }
 
 export default App;
