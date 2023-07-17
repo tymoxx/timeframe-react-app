@@ -6,6 +6,7 @@ import {ScrollMagicPluginIndicator} from "scrollmagic-plugins";
 import ScrollMagic from 'scrollmagic';
 import phoneMockup from './assets/phone-mockup.png';
 import screen1 from './assets/screen1.jpg';
+import image1 from './assets/image1.jpg';
 ScrollMagicPluginGsap(ScrollMagic, gsap); // add gsap to ScrollMagic
 ScrollMagicPluginIndicator(ScrollMagic); // add indicators plugin
 
@@ -60,7 +61,7 @@ function App() {
             <img
                 ref={imgRef}
                 id="pin1"
-                src={'https://assets.website-files.com/5c6648378238e311a00c7e61/5c6648378238e318c30c7f6d_hero-002.jpg'}
+                src={image1}
                 className={'image'}
             />
 
