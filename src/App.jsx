@@ -13,7 +13,7 @@ import image5 from './assets/image5.jpg';
 import image6 from './assets/image6.jpg';
 
 ScrollMagicPluginGsap(ScrollMagic, gsap);
-const DURATION = 2500;
+const DURATION = 1400;
 
 function createScene(controller, id, x, y, height, rotation, width='400px') {
     new ScrollMagic.Scene({
@@ -22,11 +22,10 @@ function createScene(controller, id, x, y, height, rotation, width='400px') {
         triggerHook: 0,
     })
         .setTween(gsap.timeline()
-            .add(gsap.from(`#${id}`, 1, { x, y, height, width }))
-            .add(gsap.to(`#${id}`, 0.6, { rotate: rotation }), '<')
-            .add(gsap.to(`#${id}`, 0.4, { rotate: 0 }), '>')
+            .add(gsap.from(`#${id}`, 1, { x, y, height, width, ease: 'none' }))
+            .add(gsap.to(`#${id}`, 0.6, { rotate: rotation, ease: 'none' }), '<')
+            .add(gsap.to(`#${id}`, 0.4, { rotate: 0, ease: 'none' }), '>')
         )
-        .setPin(`#${id}`)
         .addTo(controller);
 }
 
@@ -43,12 +42,13 @@ function App() {
 
         /** Scrolling Text */
         new ScrollMagic.Scene({
-            triggerElement: ".animation", duration: DURATION,
+            triggerElement: ".animation",
+            duration: DURATION * 2.7,
             triggerHook: 0,
         })
             .setTween(gsap.timeline()
-                .add(gsap.to('#scrolling-text', 1, {x: '-130vw'}), '<')
-                .add(gsap.to('#scrolling-text', 1, {opacity: 0}), '<0.3')
+                .add(gsap.to('#scrolling-text', 1, {x: '-200vw'}), '<')
+                .add(gsap.to('#scrolling-text', 1, {opacity: 0}), '<')
             )
             .setPin("#scrolling-text")
             .addTo(controller)
@@ -59,24 +59,26 @@ function App() {
             triggerHook: 0, // trigger at the top of viewport
         })
             .setTween(gsap.timeline()
-                .add(gsap.from('#phone-screen', 1, {y: '55vw'}))
+                .add(gsap.from('#phone-screen', 1, {y: '55vw', ease: 'none'}))
             )
-            .setPin("#phone-screen")
-            .addTo(controller);
+            .addTo(controller)
 
         new ScrollMagic.Scene({
             triggerElement: ".animation", duration: DURATION,
             triggerHook: 0, // trigger at the top of viewport
         })
             .setTween(gsap.timeline()
-                .add(gsap.from('#phone-mockup', 1, {y: '55vw'}))
+                .add(gsap.from('#phone-mockup', 1, {y: '55vw', ease: 'none'}))
             )
-            .setPin("#phone-mockup")
             .addTo(controller);
+
+        return () => {
+            controller.destroy(true); // Destroys the controller and all scenes associated with it
+        }
     }, []);
 
     return (
-        <>
+        <main className={"container"}>
             <h2 className="logo">UNDO:</h2>
 
             <section className="animation">
@@ -89,12 +91,12 @@ function App() {
 
                 <h2 id="scrolling-text" className="scrolling-text">A new way of designing, discovering and sharing time.</h2>
 
-                <img id="phone-screen" src={screen1} alt="phone-screen1" className="phone-image phone-screen" />
-                <img id="phone-mockup" src={phoneMockup} alt="phone-mockup" className="phone-image phone-mockup" />
+                <div id="phone-screen" className="phone-image phone-screen" style={{ backgroundImage: `url(${screen1})` }} />
+                <div id="phone-mockup" className="phone-image phone-mockup" style={{ backgroundImage: `url(${phoneMockup})` }} />
             </section>
 
             <footer className="footer">FOOTER</footer>
-        </>
+        </main>
     );
 }
 
